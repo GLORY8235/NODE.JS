@@ -2,23 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; font-src 'self';"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Get and Post</title>
 </head>
 <body>
-    <h1>get and post request</h1>
-    <h1>post request</h1>
-    <form action="http://localhost:5000/tacos" method="get">
-        <input type="text" name="meat" id="">
-        <input type="number" name="number" id="">
-        <button type="submit">submit</button>
+    <h1>GET request</h1>
+    <form action="http://localhost:8000/tacos" method="get">
+        <input type="text" name="meat" placeholder="Meat">
+        <input type="number" name="qnt" placeholder="Quantity">
+        <button type="submit">Submit GET</button>
     </form>
-    <h1> post </h1>
 
-    <form action="http://localhost:5000/tacos" meth od="post">
-        <input type="text" name="meat" id="">
-        <input type="number" name="number" id="">
-        <button type="submit">submit</button>
+    <h1>POST request</h1>
+    <form action="http://localhost:8000/tacos" method="post">
+        <input type="text" name="meat" placeholder="Meat">
+        <input type="number" name="qnt" placeholder="Quantity">
+        <button type="submit">Submit POST</button>
     </form>
 </body>
 </html>
