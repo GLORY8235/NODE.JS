@@ -1,6 +1,11 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const { v4: getid } = require('uuid');
+// require('dotenv').config();
+// const port = process.env.PORT || 8080;
+
+ // Generate a unique ID
 
 // Middleware to parse form data
 app.use(express.urlencoded({ extended: true }));
@@ -11,15 +16,15 @@ app.set('view engine', 'ejs');
 
 const comments = [
     {
-    id: 1,
+    id: getid(),
      username: 'John Doe', comment: 'This is a great post!' },
-    { id: 2,
+    { id: getid(),
      username: 'Jane Smith', comment: 'I learned a lot from this.' },
     {
-    id: 3,
+    id: getid(),
          username: 'Bob Johnson', comment: 'Thanks for sharing!' },
     { 
-        id: 4,
+        id: getid(),
         username: 'Alice Brown', comment: 'I found this very helpful!' },
 ];
 
@@ -32,9 +37,22 @@ app.get('/comments/new', (req, res) => {
 });
 app.post('/comments', (req, res) => {
     const { username, comment } = req.body;
-    comments.push({ username, comment });
+    comments.push({ username, comment, id: getid() });
     res.redirect('/comments');
 })
+
+app.get('/comments/:id', (req, res) => {
+    const { id } = req.params;
+    const comment = comments.find(c => c.id === (id));
+    res.render('comments/show', { comment });
+})
+app.patch('/comments/:id', (req, res) => {
+    const { id } = req.params;
+    const { newcommentText } = req.body;
+    const foundComment = comments.find(c => c.id === id);
+    foundComment.comment = newcommentText;
+    res.redirect('/comments');
+});
 
 app.get('/tacos', (req, res) => {
     res.send('GET /tacos response');
