@@ -44,6 +44,18 @@
     /* color: white; */
     transition: all 0.3s ease-in-out;
 }
+.chatbot{
+    font-family: sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    text-decoration: none;  
+    text-align: center;
+    padding: 10px;  
+    border-radius: 5px;
+    text-transform: capitalize;
+}
 .container .header .togle{
     width: 20%;
     /* height: 20px; */
@@ -62,3 +74,67 @@
     cursor: pointer;
     margin: 10px;
 }
+/* middle */
+/* :left */
+
+.container .wrapp{
+    width: 100%;
+    height: auto;
+    display: flex;
+    /* border: 2px solid red; */
+    /* background: red; */
+    /* flex-direction: column; */
+    gap: 5px;
+}
+.container .wrapp .left{
+    width: 25%;
+    height: 100rem;
+    display: flex;
+ border: 2px solid red;
+    flex-direction: column;
+
+}
+.container .wrapp .right{
+    width: 85%;
+    height: 100rem;
+    display: flex;
+border: 2px solid yellowgreen;
+}
+
+  
+  #toggleBtn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1001;
+    padding: 10px 15px;
+    font-size: 20px;
+  }
+  
+  .sidebar {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: -250px; /* Hidden by default */
+    background-color: #111;
+    padding-top: 60px;
+    transition: left 0.3s ease;
+    z-index: 1000;
+  }
+  
+  .sidebar a {
+    padding: 10px 20px;
+    text-decoration: none;
+    color: white;
+    display: block;
+  }
+  
+  .sidebar a:hover {
+    background-color: #575757;
+  }
+  
+  .sidebar.active {
+    left: 0; /* Slide in */
+  }
+  
